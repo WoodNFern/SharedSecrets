@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SharedSecrets</string>
+    <string name="salt">Salt = </string>
+    <string name="hash">Hash:\n</string>
+</resources>
