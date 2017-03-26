@@ -15,7 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreditsActivity"></activity>
+        <activity android:name=".CreditsActivity"
+            android:parentActivityName="com.rax.sharedsecrets.Encryptor">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.rax.sharedsecrets.Encryptor"/>
+        </activity>
     </application>
 
 </manifest>
