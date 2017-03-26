@@ -6,7 +6,7 @@
         android:id="@+id/credits"
         android:title="Credits"
         app:showAsAction="always"
-        android:icon="@drawable/ic_credits"
+        android:icon="@drawable/ic_info_outline_white_24dp"
         />
 
 </menu>
