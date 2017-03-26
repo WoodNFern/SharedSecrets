@@ -82,7 +82,8 @@ public class Encryptor extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.credits) {
-            // Open Credits page
+            Intent intent = new Intent(this, CreditsActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
