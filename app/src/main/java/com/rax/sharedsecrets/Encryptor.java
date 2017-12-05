@@ -22,11 +22,15 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import org.joda.time.Instant;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 
 public class Encryptor extends AppCompatActivity {
+
+    private static final long MILLISECONDS_PER_5_MINUTES = 300_000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,11 +170,10 @@ public class Encryptor extends AppCompatActivity {
     }
 
     public String getTimeSalt(){
-        Calendar date = Calendar.getInstance();
-        int minutes = date.get(Calendar.MINUTE);
-        date.set(Calendar.MINUTE, minutes - (minutes % 5));
-        date.set(Calendar.SECOND, 0);
-        date.set(Calendar.MILLISECOND, 0);
-        return date.getTime().toString();
+        Instant instant = Instant.now();
+        long millTime = instant.getMillis();
+        long roundedMillTime = millTime - (millTime % MILLISECONDS_PER_5_MINUTES);
+
+        return String.valueOf(roundedMillTime);
     }
 }
